@@ -92,3 +92,53 @@ http://{dns-native}/knative/greeting/sashvin
 Note: If there is no requests for 30 or more seconds, pods will be scaled down to 0. Native image cold start will be much quicker.
    
 ```
+
+## Build and deploy Quarkus Funqy Workload (both JVM and Native)
+
+```
+cd ../workload_funqy
+
+Refer workload_funqy/README.md for build and push the image into ECR.
+
+Make sure your image is updated in service-jvm.yaml and service-native.yaml respectively.
+
+
+# Deploy Knative service using JVM
+
+   kubectl apply -f service-jvm.yaml
+
+# Deploy Knative service using Native Mode
+
+   kubectl apply -f service-native.yaml
+
+
+# Test and verify
+
+# find the knative service URL
+
+   kubectl get ksvc
+
+
+
+curl "{ksvc-url}/greet" \
+-X POST \
+-H "Content-Type: application/json" \
+-d '{"name":"Moses Alphonse"}'
+
+
+curl "{ksvc-url}/greet?name=sashvin Moses"
+
+
+curl "{ksvc-url}/lower" \
+-X POST \
+-H "Content-Type: application/json" \
+-d '"HELLO QUARKUS KNATIVE"'
+
+
+curl "{ksvc-url}/double" \
+-X POST \
+-H "Content-Type: application/json" \
+-d '345663'
+
+   
+```
