@@ -43,7 +43,7 @@ d) Test and verify scale to zero (both cold and warm start)
 
    kubectl get pods -n istio-system
 
-# Verify Knative Serving, eventing and Monitoring
+# Intall Knative Serving, eventing and Monitoring
 
    cd ../setup
 
