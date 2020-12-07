@@ -15,3 +15,10 @@ c) Deploy and deploy Quarkus Funqy workload (both jvm and native)
 d) Test and verify scale to zero (both cold and warm start)
 
 ```
+
+## SetUp Knative on GKE
+
+```
+Setting Up Knative on Google Kubernetes Engine
+ 
+  kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
