@@ -54,3 +54,41 @@ d) Test and verify scale to zero (both cold and warm start)
    ./install-monitoring
    
 ```
+
+## Build and deploy Quarkus Workload (both JVM and Native)
+
+```
+cd ../workload
+
+# Refer workload/README.md for build and push the image into ECR
+
+Note: Make sure your image is updated in service-jvm.yaml and service-native.yaml respectively.
+
+
+# Deploy Knative service using JVM
+
+   kubectl apply -f service-jvm.yaml
+
+# Deploy Knative service using Native Mode
+
+   kubectl apply -f service-native.yaml
+
+# Test and verify
+
+# to find the knative service URL:
+
+   kubectl get ksvc
+
+# Use curl or browser to test:
+
+JVM :
+http://{dns-jvm}/knative
+http://{dns-jvm}/knative/greeting/sashvin
+
+Native:
+http://{dns-native}/knative
+http://{dns-native}/knative/greeting/sashvin
+
+Note: If there is no requests for 30 or more seconds, pods will be scaled down to 0. Native image cold start will be much quicker.
+   
+```
