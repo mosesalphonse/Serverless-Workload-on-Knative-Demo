@@ -19,7 +19,7 @@ d) Test and verify scale to zero (both cold and warm start)
 ## SetUp Knative on GKE
 
 ```
-Setting Up Knative on Google Kubernetes Engine
+# Setting Up Knative on Google Kubernetes Engine
  
    git clone https://github.com/mosesalphonse/Serverless-Workload-on-Knative-Demo.git
 
@@ -27,17 +27,23 @@ Setting Up Knative on Google Kubernetes Engine
 
    gcloud init
 
-update Config (make sure project and other versions are correct)
+# Update Config (make sure project and other versions are correct)
+
+# Install GKE Cluster
 
    ./create-gke-cluster
+
+# Install Istio On GKE
 
    cd ../istio
 
    ./install-istio.sh istio-minimal.yaml
 
-# verify istio
+# Verify istio
 
    kubectl get pods -n istio-system
+
+# Verify Knative Serving, eventing and Monitoring
 
    cd ../setup
 
