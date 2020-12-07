@@ -21,4 +21,30 @@ d) Test and verify scale to zero (both cold and warm start)
 ```
 Setting Up Knative on Google Kubernetes Engine
  
-  kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+   git clone https://github.com/mosesalphonse/Serverless-Workload-on-Knative-Demo.git
+
+   cd Serverless-Workload-on-Knative-Demo/setup
+
+   gcloud init
+
+update Config (make sure project and other versions are correct)
+
+   ./create-gke-cluster
+
+   cd ../istio
+
+   ./install-istio.sh istio-minimal.yaml
+
+# verify istio
+
+   kubectl get pods -n istio-system
+
+   cd ../setup
+
+   ./install-serving
+
+   ./install-eventing
+
+   ./install-monitoring
+   
+```
