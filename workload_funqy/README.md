@@ -1,33 +1,24 @@
-# Quarkus-Funqy-Standalone-Demo
-Quarkus Funqy HTTP-Binding - Standalone Demo
+# Quarkus-Funqy-Workload
 
-## Test:
+Quarkus Funqy HTTP-Binding - Demo
 
-### Run in Dev Mode:
+# Build and push the image into ECR
+
 ```
-mvn compile quarkus:dev
-```
-### In another termnal:
-```
-curl "http://localhost:8080/greet" \
--X POST \
--H "Content-Type: application/json" \
--d '{"name":"Moses"}'
+# verify src/main/resources/application.properties file for (image name, ECR)
 
+# Build using JVM:
 
-curl "http://localhost:8080/greet?name=sashvin"
+      mvn clean package -Dquarkus.container-image.push=true
 
+# Verify the image in ECR.
 
-curl "http://localhost:8080/lower" \
--X POST \
--H "Content-Type: application/json" \
--d '"HELLO QUARKUS"'
+# Build using Native:
 
+      mvn package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.push=true
 
-curl "http://localhost:8080/double" \
--X POST \
--H "Content-Type: application/json" \
--d '3443'
+# Verify the image in ECR.
+
 
 ```
 
