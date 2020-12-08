@@ -11,8 +11,8 @@ This is to demonstrate how to setup knative capabilities in Kubernetes cluster o
 ```
 a) Kubernetes - Knative setup on GKE
 b) Build and deploy quarkyus workload (both jvm and native)
-c) Deploy and deploy Quarkus Funqy workload (both jvm and native)
-d) Test and verify scale to zero (both cold and warm start)
+c) Build and deploy Quarkus Funqy workload (both jvm and native)
+d) Test and verify scale to zero (along with cold and warm start)
 
 ```
 
